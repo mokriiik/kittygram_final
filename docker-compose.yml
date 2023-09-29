@@ -1,7 +1,7 @@
 version: '3'
 
 volumes:
-  pg_data2:
+  pg_data_final:
   static:
   media:
 
@@ -10,7 +10,7 @@ services:
     image: postgres:13
     env_file: .env
     volumes:
-      - pg_data2:/var/lib/postgresql/data
+      - pg_data_final:/var/lib/postgresql/data
   backend:
     build: ./backend/
     env_file: .env
@@ -29,7 +29,7 @@ services:
     build: ./nginx/
     env_file: .env
     ports:
-      - 80:80
+      - 9000:80
     volumes:
       - static:/static
       - media:/media
