@@ -1,33 +1,33 @@
-version: '3'
+# version: '3'
 
-volumes:
-  pg_data_final:
-  static:
-  media:
+# volumes:
+#   pg_data_final:
+#   static:
+#   media:
 
-services:
-  db_2:
-    image: postgres:13
-    env_file: .env
-    volumes:
-      - pg_data:/var/lib/postgres/data
-  backend:
-    image: mokriiiii/kittygram_backend
-    env_file: .env
-    volumes:
-      - static:/static/
-      - media:/app/media/
-  frontend:
-    env_file: .env
-    image: mokriiiii/kittygram_frontend
-    command: cp -r /app/build/. /static/
-    volumes:
-      - static:/static
-  gateway:
-    image: mokriiiii/kittygram_gateway
-    env_file: .env
-    ports:
-      - 9000:80
-    volumes:
-      - static:/static
-      - media:/app/media/
+# services:
+#   db:
+#     image: postgres:13
+#     env_file: .env
+#     volumes:
+#       - pg_data_final:/var/lib/postgres/data
+#   backend:
+#     image: mokriiiii/kittygram_backend
+#     env_file: .env
+#     volumes:
+#       - static:/static/
+#       - media:/app/media/
+#   frontend:
+#     env_file: .env
+#     image: mokriiiii/kittygram_frontend
+#     command: cp -r /app/build/. /static/
+#     volumes:
+#       - static:/static
+#   gateway:
+#     image: mokriiiii/kittygram_gateway
+#     env_file: .env
+#     ports:
+#       - 9000:80
+#     volumes:
+#       - static:/static
+#       - media:/app/media/
