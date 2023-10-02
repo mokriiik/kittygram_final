@@ -166,7 +166,7 @@ jobs:
           sudo docker compose -f docker-compose.production.yml exec backend cp -r collected_static/. ../static/static/
           
 
-# отправка в_тг
+# отправка_в_тг
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
